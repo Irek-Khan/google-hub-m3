@@ -290,6 +290,7 @@ export default function GoogleHub() {
 function StyleBlock() {
   return (
     <style>{`
+      /* --- Material 3 palette & elevations --- */
       :root {
         --m3-primary: #6750A4; --m3-on-primary: #FFFFFF; --m3-primary-container: #EADDFF; --m3-on-primary-container: #21005D;
         --m3-secondary: #625B71; --m3-on-secondary: #FFFFFF; --m3-secondary-container: #E8DEF8; --m3-on-secondary-container: #1D192B;
@@ -308,8 +309,95 @@ function StyleBlock() {
         --m3-card-surface: var(--m3-elev-2);
       }
       .theme-light {}
+
+      /* --- Minimal utility classes (Tailwind-like) so build works без Tailwind --- */
+      .min-h-screen{min-height:100vh}
+      .hidden{display:none}
+      .block{display:block}
+      .grid{display:grid}
+      .flex{display:flex}
+      .relative{position:relative}
+      .absolute{position:absolute}
+      .fixed{position:fixed}
+      .inset-0{top:0;right:0;bottom:0;left:0}
+      .z-50{z-index:50}
+
+      .items-center{align-items:center}
+      .justify-between{justify-content:space-between}
+      .text-left{text-align:left}
+      .uppercase{text-transform:uppercase}
+      .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      .tracking-wide{letter-spacing:.025em}
+
+      /* spacing */
+      .p-2{padding:.5rem}
+      .p-3{padding:.75rem}
+      .p-4{padding:1rem}
+      .px-2{padding-left:.5rem;padding-right:.5rem}
+      .px-3{padding-left:.75rem;padding-right:.75rem}
+      .px-5{padding-left:1.25rem;padding-right:1.25rem}
+      .py-0{padding-top:0;padding-bottom:0}
+      .py-2{padding-top:.5rem;padding-bottom:.5rem}
+      .py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+      .pt-0{padding-top:0}
+      .pt-2{padding-top:.5rem}
+      .pt-3{padding-top:.75rem}
+      .pb-10{padding-bottom:2.5rem}
+      .pb-2{padding-bottom:.5rem}
+      .pr-2{padding-right:.5rem}
+      .mt-4{margin-top:1rem}
+      .mb-2{margin-bottom:.5rem}
+      .ml-2{margin-left:.5rem}
+      .gap-1{gap:.25rem}
+      .gap-2{gap:.5rem}
+      .gap-3{gap:.75rem}
+      .gap-4{gap:1rem}
+      .gap-5{gap:1.25rem}
+
+      /* sizing */
+      .h-4{height:1rem}.w-4{width:1rem}
+      .h-5{height:1.25rem}.w-5{width:1.25rem}
+      .h-8{height:2rem}.w-8{width:2rem}
+      .h-9{height:2.25rem}.w-9{width:2.25rem}
+      .h-10{height:2.5rem}.w-10{width:2.5rem}
+      .h-full{height:100%}.w-full{width:100%}
+      .min-w-0{min-width:0}
+
+      /* border & radius */
+      .border{border:1px solid var(--m3-outline)}
+      .border-0{border:0}
+      .rounded-xl{border-radius:0.75rem}
+      .rounded-2xl{border-radius:1rem}
+      .rounded-3xl{border-radius:1.5rem}
+      .rounded-full{border-radius:9999px}
+
+      /* text */
+      .text-[10px]{font-size:10px}
+      .text-sm{font-size:.875rem;line-height:1.25rem}
+      .text-lg{font-size:1.125rem;line-height:1.75rem}
+      .text-xl{font-size:1.25rem;line-height:1.75rem}
+      .text-2xl{font-size:1.5rem;line-height:2rem}
+      .font-medium{font-weight:500}
+      .font-semibold{font-weight:600}
+      .opacity-80{opacity:.8}
+
+      /* grid templates */
+      .sm\:grid-cols-2{grid-template-columns:repeat(1,minmax(0,1fr))}
+      .lg\:grid-cols-3{grid-template-columns:repeat(1,minmax(0,1fr))}
+      @media (min-width:640px){
+        .sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .sm\:inset-6{top:1.5rem;right:1.5rem;bottom:1.5rem;left:1.5rem}
+        .sm\:block{display:block}
+        .sm\:text-2xl{font-size:1.5rem;line-height:2rem}
+        .sm\:grid-cols-[1fr,auto]{grid-template-columns:1fr auto}
+      }
+      @media (min-width:1024px){
+        .lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+      }
+
+      /* buttons & states */
       [data-emph='1'] { --m3-state-hover: 0.12; --m3-state-press: 0.20; }
-      .btn { position: relative; isolation:isolate; transition: box-shadow .18s ease, transform .18s ease; }
+      .btn { position: relative; isolation:isolate; transition: box-shadow .18s ease, transform .18s ease; cursor:pointer; }
       .btn::after { content:""; position:absolute; inset:0; border-radius:inherit; background:transparent; z-index:0; }
       .btn > * { position:relative; z-index:1; }
       .btn:hover{ transform: translateY(-1px); }
@@ -322,6 +410,8 @@ function StyleBlock() {
       .btn-outlined { background: transparent; color: var(--m3-on-surface); border:1px solid var(--m3-outline); }
       .btn-icon { background: transparent; color: var(--m3-on-surface); border:1px solid var(--m3-outline); }
       [data-emph='1'] .btn-primary { box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+
+      /* cards, fields, nav */
       .card-m3 { background: var(--m3-card-surface); transition: box-shadow .22s ease, transform .22s ease, background-color .22s ease; }
       .card-m3:hover { transform: translateY(-2px); }
       [data-emph='1'] .card-m3:hover { box-shadow: 0 10px 26px rgba(0,0,0,.20); }
