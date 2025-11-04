@@ -105,7 +105,7 @@ export default function App() {
   const closeService = () => setActive(null);
   const isFav = (k: string) => favorites.includes(k);
   const toggleFav = (k: string) => setFavorites((prev) => (prev.includes(k) ? prev.filter((x) => x !== k) : [...prev, k]));
-  const externalUrl = (url: string) => (useTunnel ? f"{proxyHost}{encodeURIComponent(url)}" : url);
+  const externalUrl = (url: string) => (useTunnel ? `${proxyHost}${encodeURIComponent(url)}` : url);
   // fixed: template string
 
   return (
