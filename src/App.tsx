@@ -146,7 +146,7 @@ export default function GoogleHub() {
       <StyleBlock />
 
       <div className="min-h-screen" style={{ backgroundColor: "var(--m3-surface)", color: "var(--m3-on-surface)" }}>
-        <header className={`${m3.pad.section} flex items-center justify-between`} style={{ backgroundColor: "var(--m3-surface)", borderBottom: "1px solid var(--m3-surface-variant)" }}>
+        <header className={`container ${m3.pad.section}$1` style={{ backgroundColor: "var(--m3-surface)", borderBottom: "1px solid var(--m3-surface-variant)" }}>
           <div className="flex items-center gap-3">
             <div className={`h-10 w-10 ${m3.shape.xl} grid place-items-center`} style={{ backgroundColor: "var(--m3-primary)", color: "var(--m3-on-primary)" }}>G</div>
             <div>
@@ -168,7 +168,7 @@ export default function GoogleHub() {
           </div>
         </header>
 
-        <section className={`${m3.pad.section} pt-2 grid gap-3 sm:grid-cols-[1fr,auto] items-center`}>
+        <section className={`container ${m3.pad.section}$1`>
           <div className={`field flex items-center gap-2 ${m3.shape.lg} ${m3.elev[1]} p-2`}>
             <Search className="h-5 w-5" style={{ color: "var(--m3-on-surface-variant)" }} />
             <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Поиск по сервисам и описанию…" className="border-none bg-transparent focus-visible:ring-0" data-testid="search-input" style={{ color: "var(--m3-on-surface)", caretColor: "var(--m3-primary)" }} />
@@ -178,7 +178,7 @@ export default function GoogleHub() {
           </div>
         </section>
 
-        <section className={`${m3.pad.section} pt-2`}>
+        <section className={`container ${m3.pad.section}$1`>
           {favorites.length > 0 && (
             <div>
               <h2 className="text-sm font-medium mb-2" style={{ color: "var(--m3-on-surface-variant)" }}>Избранные</h2>
@@ -196,7 +196,7 @@ export default function GoogleHub() {
           <div data-testid="favorites-count" className="hidden">{favorites.length}</div>
         </section>
 
-        <main className={`${m3.pad.section} pt-3`}>
+        <main className={`container ${m3.pad.section}$1`>
           {filtered.length === 0 ? (
             <p style={{ color: "var(--m3-on-surface-variant)" }}>Ничего не найдено. Попробуйте другое слово.</p>
           ) : (
@@ -212,7 +212,7 @@ export default function GoogleHub() {
           <div data-testid="services-count" className="hidden">{SERVICES.length}</div>
         </main>
 
-        <footer className={`mt-10 ${m3.pad.section} pt-0 pb-10`} style={{ color: "var(--m3-on-surface-variant)" }}>
+        <footer className={`mt-10 container ${m3.pad.section}$1` style={{ color: "var(--m3-on-surface-variant)" }}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Settings2 className="h-4 w-4" />
@@ -310,7 +310,16 @@ function StyleBlock() {
       }
       .theme-light {}
 
-      /* --- Minimal utility classes (Tailwind-like) so build works без Tailwind --- */
+      /* --- Base reset & typography --- */
+      *,*::before,*::after{box-sizing:border-box}
+      html,body,#root{height:100%}
+      body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; line-height:1.4; background:var(--m3-surface); color:var(--m3-on-surface); -webkit-font-smoothing:antialiased;}
+      h1,h2,h3,p{margin:0}
+      a{color:inherit;text-decoration:none}
+      button{font:inherit}
+      .container{max-width:1100px;margin:0 auto}
+
+      /* --- Minimal utility classes (Tailwind-like) --- */
       .min-h-screen{min-height:100vh}
       .hidden{display:none}
       .block{display:block}
@@ -419,7 +428,7 @@ function StyleBlock() {
       .nav-item:hover { background: color-mix(in oklab, var(--m3-primary) calc(var(--m3-state-hover)*100%), transparent); }
       .nav-item:active { background: color-mix(in oklab, var(--m3-primary) calc(var(--m3-state-press)*100%), transparent); }
       .nav-item.active { background: color-mix(in oklab, var(--m3-primary) 8%, transparent); }
-      .field { background: var(--m3-elev-1); border:1px solid var(--m3-outline); transition: box-shadow .16s ease, border-color .16s ease; }
+      .field { background: var(--m3-elev-1); border:1px solid var(--m3-outline); transition: box-shadow .16s ease, border-color .16s ease; width:100%; }
       .field:focus-within { border-color: color-mix(in oklab, var(--m3-primary) 40%, var(--m3-outline)); box-shadow: 0 0 0 2px color-mix(in oklab, var(--m3-primary) 25%, transparent); }
       .nav-rail{ width: 100%; max-width: 260px; overflow-x:hidden; }
       .nav-button{ display:flex; align-items:center; gap:.5rem; height: 3rem; position:relative; width:100%; }
