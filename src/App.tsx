@@ -383,7 +383,7 @@ function StyleBlock() {
       .rounded-full{border-radius:9999px}
 
       /* text */
-      .text-[10px]{font-size:10px}
+      .text-\[10px\]{font-size:10px}
       .text-xs{font-size:.75rem;line-height:1rem}
       .text-sm{font-size:.875rem;line-height:1.25rem}
       .text-lg{font-size:1.125rem;line-height:1.75rem}
