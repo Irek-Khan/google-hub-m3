@@ -146,7 +146,7 @@ export default function GoogleHub() {
       <StyleBlock />
 
       <div className="min-h-screen" style={{ backgroundColor: "var(--m3-surface)", color: "var(--m3-on-surface)" }}>
-        <header className={`container ${m3.pad.section}$1` style={{ backgroundColor: "var(--m3-surface)", borderBottom: "1px solid var(--m3-surface-variant)" }}>
+        <header className={`container ${m3.pad.section}` style={{ backgroundColor: "var(--m3-surface)", borderBottom: "1px solid var(--m3-surface-variant)" }}>
           <div className="flex items-center gap-3">
             <div className={`h-10 w-10 ${m3.shape.xl} grid place-items-center`} style={{ backgroundColor: "var(--m3-primary)", color: "var(--m3-on-primary)" }}>G</div>
             <div>
@@ -168,7 +168,7 @@ export default function GoogleHub() {
           </div>
         </header>
 
-        <section className={`container ${m3.pad.section}$1`>
+        <section className={`container ${m3.pad.section}`>
           <div className={`field flex items-center gap-2 ${m3.shape.lg} ${m3.elev[1]} p-2`}>
             <Search className="h-5 w-5" style={{ color: "var(--m3-on-surface-variant)" }} />
             <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Поиск по сервисам и описанию…" className="border-none bg-transparent focus-visible:ring-0" data-testid="search-input" style={{ color: "var(--m3-on-surface)", caretColor: "var(--m3-primary)" }} />
@@ -178,7 +178,7 @@ export default function GoogleHub() {
           </div>
         </section>
 
-        <section className={`container ${m3.pad.section}$1`>
+        <section className={`container ${m3.pad.section}`>
           {favorites.length > 0 && (
             <div>
               <h2 className="text-sm font-medium mb-2" style={{ color: "var(--m3-on-surface-variant)" }}>Избранные</h2>
@@ -196,7 +196,7 @@ export default function GoogleHub() {
           <div data-testid="favorites-count" className="hidden">{favorites.length}</div>
         </section>
 
-        <main className={`container ${m3.pad.section}$1`>
+        <main className={`container ${m3.pad.section}`>
           {filtered.length === 0 ? (
             <p style={{ color: "var(--m3-on-surface-variant)" }}>Ничего не найдено. Попробуйте другое слово.</p>
           ) : (
@@ -212,7 +212,7 @@ export default function GoogleHub() {
           <div data-testid="services-count" className="hidden">{SERVICES.length}</div>
         </main>
 
-        <footer className={`mt-10 container ${m3.pad.section}$1` style={{ color: "var(--m3-on-surface-variant)" }}>
+        <footer className={`mt-10 container ${m3.pad.section}` style={{ color: "var(--m3-on-surface-variant)" }}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Settings2 className="h-4 w-4" />
@@ -324,6 +324,7 @@ function StyleBlock() {
       .hidden{display:none}
       .block{display:block}
       .grid{display:grid}
+      .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
       .flex{display:flex}
       .relative{position:relative}
       .absolute{position:absolute}
@@ -337,6 +338,7 @@ function StyleBlock() {
       .uppercase{text-transform:uppercase}
       .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
       .tracking-wide{letter-spacing:.025em}
+      .place-items-center{place-items:center}
 
       /* spacing */
       .p-2{padding:.5rem}
@@ -382,6 +384,7 @@ function StyleBlock() {
 
       /* text */
       .text-[10px]{font-size:10px}
+      .text-xs{font-size:.75rem;line-height:1rem}
       .text-sm{font-size:.875rem;line-height:1.25rem}
       .text-lg{font-size:1.125rem;line-height:1.75rem}
       .text-xl{font-size:1.25rem;line-height:1.75rem}
@@ -389,6 +392,7 @@ function StyleBlock() {
       .font-medium{font-weight:500}
       .font-semibold{font-weight:600}
       .opacity-80{opacity:.8}
+      .min-h-\[40px\]{min-height:40px}
 
       /* grid templates */
       .sm\:grid-cols-2{grid-template-columns:repeat(1,minmax(0,1fr))}
@@ -398,7 +402,8 @@ function StyleBlock() {
         .sm\:inset-6{top:1.5rem;right:1.5rem;bottom:1.5rem;left:1.5rem}
         .sm\:block{display:block}
         .sm\:text-2xl{font-size:1.5rem;line-height:2rem}
-        .sm\:grid-cols-[1fr,auto]{grid-template-columns:1fr auto}
+        .sm\:grid-cols-\[1fr\,auto\]{grid-template-columns:1fr auto}
+        .sm\:grid-cols-\[260px_1fr\]{grid-template-columns:260px 1fr}
       }
       @media (min-width:1024px){
         .lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
